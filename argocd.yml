@@ -1,0 +1,8 @@
+dex:
+  enabled: false
+server:
+  extraArgs:
+    - --insecure
+  service:
+    type: NodePort
+    nodePortHttp: 30000
