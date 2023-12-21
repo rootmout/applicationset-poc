@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  namespace: hello
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        env:
+        - name: MSG
+          value: "Je suis à Paris"

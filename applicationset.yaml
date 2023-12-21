@@ -1,0 +1,30 @@
+# This applicationSet will be deployed to paris and tokyo cluster.
+# The app is a nginx server that respond a dummy message set by an env var
+# note that an init container will just wait for 30 seconds to simulate a long startup time
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hello
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: paris
+        url: https://172.19.0.3:6443
+      - cluster: tokyo
+        url: https://172.19.0.4:6443
+  template:
+    metadata:
+      name: '{{cluster}}-hello'
+    spec:
+      project: default
+      source:
+        repoURL: https://gitlab.com/rootmout.perso/poc/applicationset.git
+        targetRevision: HEAD
+        path: manifests/hello/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: hello
+      syncPolicy:
+        automated: {}
