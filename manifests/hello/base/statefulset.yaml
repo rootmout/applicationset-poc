@@ -26,10 +26,10 @@ spec:
             value: "Hello, World"
           - name: LOCATION
             value: "Space"
-          command: ["python", "-m", "http.server", "8080"]
+          command: ["python", "/usr/src/app/script.py"]
           volumeMounts:
           - name: script-volume
-            mountPath: /usr/src/app
+            mountPath: /usr/src/app/script.py
             subPath: script.py
           resources:
             limits:

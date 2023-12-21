@@ -17,7 +17,7 @@ data:
             self.wfile.write(bytes(message, "utf8"))
 
         def do_GET(self):
-            message = os.getenv("GREETING") + ", from" + os.getenv("LOCATION") + "!"
+            message = os.getenv("GREETING") + ", from " + os.getenv("LOCATION") + "!"
             self._send_response(message)
 
     if __name__ == "__main__":
