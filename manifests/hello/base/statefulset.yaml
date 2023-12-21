@@ -1,13 +1,14 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: hello-deployment
+  name: hello
   namespace: hello
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hello
+  serviceName: hello
   template:
     metadata:
       labels:
@@ -22,9 +23,9 @@ spec:
           image: python:3.7-slim
           env:
           - name: GREETING
-            value: "Hello, World!"
-          - name: MSG
-            value: "Hello, World?"
+            value: "Hello, World"
+          - name: LOCATION
+            value: "Space"
           command: ["python", "-m", "http.server", "8080"]
           volumeMounts:
           - name: script-volume

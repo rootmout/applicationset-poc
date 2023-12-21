@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: hello-deployment
+  name: hello
   namespace: hello
 spec:
   template:
@@ -9,5 +9,5 @@ spec:
       containers:
       - name: hello
         env:
-        - name: MSG
-          value: "I'm in tokyo"
+        - name: LOCATION
+          value: "Tokyo"

@@ -17,7 +17,8 @@ data:
             self.wfile.write(bytes(message, "utf8"))
 
         def do_GET(self):
-            self._send_response(os.getenv("MSG"))
+            message = os.getenv("GREETING") + ", from" + os.getenv("LOCATION") + "!"
+            self._send_response(message)
 
     if __name__ == "__main__":
         server_address = ('', 8080)
