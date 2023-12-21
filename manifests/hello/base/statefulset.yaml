@@ -23,7 +23,7 @@ spec:
           image: python:3.7-slim
           env:
           - name: GREETING
-            value: "Hello, World"
+            value: "Hello"
           - name: LOCATION
             value: "Space"
           command: ["python", "/usr/src/app/script.py"]
