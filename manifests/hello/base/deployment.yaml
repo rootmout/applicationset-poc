@@ -21,6 +21,8 @@ spec:
         - name: hello
           image: python:3.7-slim
           env:
+          - name: GREETING
+            value: "Hello, World!"
           - name: MSG
             value: "Hello, World?"
           command: ["python", "-m", "http.server", "8080"]
