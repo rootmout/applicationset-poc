@@ -17,6 +17,8 @@ spec:
   template:
     metadata:
       name: '{{cluster}}-hello'
+      labels:
+        region: '{{cluster}}'
     spec:
       project: default
       source:
@@ -26,10 +28,17 @@ spec:
       destination:
         server: '{{url}}'
         namespace: hello
-      syncPolicy:
-        automated: {}
   strategy:
     type: RollingSync
     rollingSync:
       steps:
-        - maxUpdate: 10%
+        - matchExpressions:
+            - key: region
+              operator: In
+              values:
+                - tokyo
+        - matchExpressions:
+            - key: region
+              operator: In
+              values:
+                - paris
