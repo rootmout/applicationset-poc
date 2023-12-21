@@ -28,3 +28,8 @@ spec:
         namespace: hello
       syncPolicy:
         automated: {}
+  strategy:
+    type: RollingSync
+    rollingSync:
+      steps:
+        - maxUpdate: 10%

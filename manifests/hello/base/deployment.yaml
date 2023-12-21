@@ -22,7 +22,7 @@ spec:
           image: python:3.7-slim
           env:
           - name: MSG
-            value: "Hello, World!"
+            value: "Hello, World?"
           command: ["python", "-m", "http.server", "8080"]
           volumeMounts:
           - name: script-volume
