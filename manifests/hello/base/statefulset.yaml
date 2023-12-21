@@ -30,6 +30,7 @@ spec:
           volumeMounts:
           - name: script-volume
             mountPath: /usr/src/app
+            subPath: script.py
           resources:
             limits:
               cpu: "500m"
@@ -44,3 +45,4 @@ spec:
         - name: script-volume
           configMap:
             name: script-configmap
+            defaultMode: 0744
