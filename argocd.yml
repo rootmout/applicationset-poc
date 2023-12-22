@@ -6,3 +6,6 @@ server:
   service:
     type: NodePort
     nodePortHttp: 30000
+configs:
+  params:
+    applicationsetcontroller.enable.progressive.syncs: true
